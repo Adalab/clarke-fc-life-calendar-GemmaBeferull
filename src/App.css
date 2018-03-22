@@ -26,3 +26,13 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.gotocalendar {
+  height: 10vh;
+  width: 100vw;
+  background-color: blue;
+  font-size: 8vh;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
