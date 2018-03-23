@@ -49,6 +49,9 @@ margin: auto;
   flex-direction: column;
 }
 
+.hidden{
+  display: none;
+}
 
 @media all and (min-width: 768px) {
   * {
