@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route, Redirect, Link } from 'react-router-dom';
-import Editor from './editor';
+import { BrowserRouter as  Route, Link } from 'react-router-dom';
+import Footer from './footer';
+
 
 class Calendar extends Component {
 
@@ -10,12 +11,13 @@ class Calendar extends Component {
       return (
         <div>
         <Link to="/editor" style={{ textDecoration: 'none' }}>
-        <div className="gotocalendar">
+        <div className="header">
         +
         </div>
         </Link>
-        <div>
+        <div className="smileyCalendar">
         </div>
+        <Footer/>
         </div>
 
 

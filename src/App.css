@@ -1,38 +1,55 @@
-.App {
+* {
+  font-family: 'Roboto';
+  font-size: 16px;
+  box-sizing: border-box;
+  margin: 0;
   text-align: center;
-}
+  color: rgb(23, 137, 236);
+ }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.gotocalendar {
+.header {
   height: 10vh;
   width: 100vw;
-  background-color: blue;
-  font-size: 8vh;
-  text-align: center;
-  margin: 0;
-  padding: 0;
+  background-color: rgb(23, 137, 236);
+  font-size: 6vh;
+
+  color: white;
+  margin-bottom: 30px;
 }
+.footer {
+  height: 6vh;
+  width: 100vw;
+  background-color: rgb(23, 137, 236);
+  font-size: 3vh;
+  color: white;
+  position: fixed;
+  bottom: 0px;
+
+}
+
+.saveButton{
+background-color: rgb(23, 137, 236);
+color: white;
+padding: 10px 30px;
+width: 200px;
+margin: auto;
+margin-bottom: 20px;
+}
+
+.cancelButton{
+background-color: white;
+color: rgb(23, 137, 236);
+padding: 10px 30px;
+width: 200px;
+margin: auto;
+}
+
+.flex{
+  display: flex;
+  flex-direction: column;
+}
+
+
+@media all and (min-width: 768px) {
+  * {
+    font-size: 32px; } }
