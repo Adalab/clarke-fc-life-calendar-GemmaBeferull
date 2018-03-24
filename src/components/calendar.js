@@ -5,7 +5,6 @@ import Footer from './footer';
 
 class Calendar extends Component {
 
-
     render() {
 
       return (
@@ -16,6 +15,8 @@ class Calendar extends Component {
         </div>
         </Link>
         <div className="smileyCalendar">
+        {this.props.happyDay}
+          {this.props.sadDay}
         </div>
         <Footer/>
         </div>
