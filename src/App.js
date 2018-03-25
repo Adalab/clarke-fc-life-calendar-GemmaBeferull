@@ -10,26 +10,23 @@ class App extends Component {
     this.state = {
       happy: false,
       sad: false,
-    
+      disabled: false,
     };
   }
 
   selectSad = e => {
     this.setState({
       sad: true,
-      happy: false
+      happy: false,
+      disabled: true,
     });
-    return (
-      <div className="sad">
-        <p className="center">:(</p>
-      </div>
-    );
   };
 
   selectSmile = e => {
     this.setState({
       sad: false,
-      happy: true
+      happy: true,
+      disabled: true
     });
   };
 
@@ -52,7 +49,8 @@ class App extends Component {
   pushCancelButton = () => {
     this.setState({
       sad: false,
-      happy: false
+      happy: false,
+      disabled: false
     });
   };
 
@@ -63,17 +61,22 @@ class App extends Component {
      localStorage.getItem('sad') && this.setState({
        sad: JSON.parse(localStorage.getItem('sad'))
      });
+     localStorage.getItem('disabled') && this.setState({
+       disabled: JSON.parse(localStorage.getItem('disabled'))
+     });
    }
 
   componentWillUpdate(nextProps, nextState){
     localStorage.setItem('happy', JSON.stringify(nextState.happy));
     localStorage.setItem('sad', JSON.stringify(nextState.sad));
+    localStorage.setItem('disabled', JSON.stringify(nextState.disabled));
   }
 
   render() {
     const happyprint = this.state.happy ? this.printHappy() : "";
     const sadprint = this.state.sad ? this.printSad() : "";
     const resume = this.state.happy ? happyprint : sadprint;
+    const disabled = this.state.disabled ? 'disabled' : '';
 
     return (
       <Router>
@@ -81,12 +84,16 @@ class App extends Component {
           <Route
             exact
             path="/"
-            render={props => <Calendar moodDay={resume} />}
+            render={props =>
+              <Calendar
+                moodDay={resume}
+              />}
           />
           <Route
             path="/editor"
             render={props => (
               <Editor
+                disabled={disabled}
                 printSad={this.selectSad}
                 printSmile={this.selectSmile}
                 pushCancelButton={this.pushCancelButton}
