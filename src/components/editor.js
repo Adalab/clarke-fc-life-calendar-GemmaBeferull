@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Route, Link } from "react-router-dom";
+import {  Link } from "react-router-dom";
 import Footer from "./footer";
 
 class Editor extends Component {
@@ -22,15 +22,19 @@ class Editor extends Component {
     });
   };
 
-  componentWillMount(nextProps, nextState) {
-     localStorage.getItem('disabled') && this.setState({
-       disabled: JSON.parse(localStorage.getItem('disabled'))
-     });
-   }
 
-  componentWillUpdate(nextProps, nextState){
-    localStorage.setItem('disabled', JSON.stringify(nextState.disabled));
-  }
+moodChange = (e)=> {
+  const mood= e.target.value
+if(mood === ':('){
+  this.hideTextArea()
+  this.props.printSad()
+}
+else {
+  this.showTextArea()
+  this.props.printSmile()
+}
+
+}
 
 
   render() {
@@ -55,11 +59,11 @@ class Editor extends Component {
 
         <form className="flex">
           <label for="o1">
-            <input type="radio" value=":)" id="o1" name="options" className="label" disabled={this.props.disabled}onChange={this.showTextArea} onClick={this.props.printSmile}/>
+            <input type="radio" value=":)" id="o1" name="options" className="label" disabled={this.props.disabled} onChange={this.moodChange} />
             {" "} :)
           </label>
           <label for="o2">
-            <input type="radio" value=":(" id="o2" name="options" className="label" disabled={this.props.disabled} onChange={this.hideTextArea} onClick={this.props.printSad}/>
+            <input type="radio" value=":(" id="o2" name="options" className="label" disabled={this.props.disabled} onChange={this.moodChange}/>
             {" "} :(
           </label>
         </form>
